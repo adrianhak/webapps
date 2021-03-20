@@ -49,44 +49,49 @@ export default class DrinkListItem extends Component {
             </span>
         );
         return (
-                <div className="p-col-12">
-                    <div className="product-list-item">
-                        <Voter data={data} sendVote={this.props.sendVote}></Voter>
-                        <img
-                            src={this.getImgUrl(data.image)}
-                            alt={data.name}
-                            />
-                        <div className="product-list-detail">
-                            <i className="pi pi-tag product-category-icon"></i>
-                            {tags}
-                            <div className="product-name">{data.name}</div>
-                            <span className="product-description">{data.description}</span>
-                                <div className="list-footer">
-                                    <div>
-                                        <Button label="Details" className="p-button-text" onClick={this.openDetailsDialog}></Button>
-                                        
-                                        {/* Only render details when button is clicked */}
-                                        {this.state.detailsVisible
-                                            ? <Details
-                                                visible={this.state.detailsVisible}
-                                                drink={data}
-                                                openDialog={this.openDetailsDialog}
-                                                closeDialog={this.closeDetailsDialog}
-                                                />
-                                            : ''
-                                            }
+          <div className="p-col-12 p-text-left p-pl-2 p-pr-2">
+            <div className="p-d-flex p-ai-center p-jc-between">
+              <div className="p-ml-2 p-pt-3">
+                <i className="pi pi-tag product-category-icon" />
+                {tags}
+              </div>
+              <div className="product-list-end">
+                <Avatar icon="pi pi-user" shape="circle"></Avatar>
+              </div>
+            </div>
 
-                                        <Timestamp 
-                                            data={data}
-                                            />
-                                    </div>
-                                </div>
-                        </div>
-                        <div className="product-list-end">
-                            <Avatar icon="pi pi-user" shape="circle"></Avatar>
-                        </div>
-                    </div>
+            <div className="product-list-item">
+              <Voter data={data} sendVote={this.props.sendVote}></Voter>
+              <img src={this.getImgUrl(data.image)} alt={data.name} />
+              <div className="product-list-detail">
+                <div className="product-name">{data.name}</div>
+                <div className="p-d-flex p-jc-between">
+                  <div className="product-description">{data.description}</div>
+                  <div>
+                    <Button
+                      label="Details"
+                      className="p-button-text"
+                      onClick={this.openDetailsDialog}
+                    ></Button>
+
+                    {/* Only render details when button is clicked */}
+                    {this.state.detailsVisible ? (
+                      <Details
+                        visible={this.state.detailsVisible}
+                        drink={data}
+                        openDialog={this.openDetailsDialog}
+                        closeDialog={this.closeDetailsDialog}
+                      />
+                    ) : (
+                      ""
+                    )}
+
+                    <Timestamp data={data} />
+                  </div>
                 </div>
-                );
+              </div>
+            </div>
+          </div>
+        );
         }
 }

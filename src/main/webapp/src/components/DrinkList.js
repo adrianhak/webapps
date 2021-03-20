@@ -140,7 +140,7 @@ export default class DrinkList extends React.Component {
         const header = (
                 <div className="p-grid p-nogutter">
                     {/* <Dashboard/> */}
-                    <div className="p-col-10 p-d-sm-flex" style={{textAlign: "left"}}>
+                    <div className="p-col-10 p-d-sm-flex p-flex-wrap" style={{textAlign: "left"}}>
                         <Dropdown
                             options={this.state.sortOptions}
                             value={this.state.sortKey}
@@ -199,7 +199,7 @@ export default class DrinkList extends React.Component {
                     lazy={true}
                     first={this.state.first}
                     totalRecords={this.state.totalRecords}
-                    rows={20} //rows = nr. elements according to the ABSOLUTE BUFOONS @primefaces
+                    rows={6} //rows = nr. elements according to the ABSOLUTE BUFOONS @primefaces
 				></DataView>
 			</div>
 		);

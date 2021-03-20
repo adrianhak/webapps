@@ -49,23 +49,22 @@ class DrinkCard extends Component {
         const data = this.props.data;
 
         const tags = data.ingredients.slice(0,5).map((ingredient) =>
-            <span key={ingredient.name} onClick={() => this.props.handleIngredientTagClick(ingredient.name)}>
+            <div className="ing" key={ingredient.name} onClick={() => this.props.handleIngredientTagClick(ingredient.name)}>
                 <Chip 
                     className={`ingredient-tag pmr-2 p-mb-2 ${this.props.queries.map((i) => i.name).includes(ingredient.name) ? "selected-ingredient" : ""}`} 
                     label={ingredient.name}>
                 </Chip>
-            </span>
+            </div>
         );
 
         return (
-                <div className="p-col-12 p-md-4 p-lg-3">
+                <div className="p-col-12 p-md-6 p-lg-4">
                     <div className="product-grid-item p-shadow-3">
                         <div className="product-grid-item-top">
-                            <div>
-                                <i className="pi pi-tag product-category-icon"></i>
+                            <div className="p-flex-wrap p-flex-sm-nowrap p-d-flex p-ai-center p-overflow-hidden p-mr-1">
                                 {tags}
                             </div>
-                            <span title={data.user.displayName}><Avatar title={data.user.displayName} icon="pi pi-user" shape="circle"></Avatar></span>
+                            <span className="p-as-start" title={data.user.displayName}><Avatar title={data.user.displayName} icon="pi pi-user" shape="circle"></Avatar></span>
                         </div>
                         <div className="product-grid-item-content">
                             <Voter data={data} sendVote={this.props.sendVote}></Voter>

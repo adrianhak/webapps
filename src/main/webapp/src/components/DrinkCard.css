@@ -35,6 +35,14 @@
 
 .product-grid-item-content .product-description {
     font-size: .9rem;
+    display: -webkit-box;   
+    -webkit-line-clamp: 3;   
+    -webkit-box-orient: vertical;     
+    overflow: hidden; 
+}
+
+.product-grid-item-top .ing:last-child {
+    overflow: hidden;
 }
 
 .ingredient-tag {
